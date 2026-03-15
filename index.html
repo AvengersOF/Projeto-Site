@@ -1,78 +1,43 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+function toggleMenu(){
 
-<head>
-<meta charset="UTF-8">
-<title>CardForge</title>
+let menu = document.getElementById("menu")
 
-<link rel="stylesheet" href="style.css">
+if(menu.style.left === "0px"){
+menu.style.left = "-250px"
+}else{
+menu.style.left = "0px"
+}
 
-</head>
+}
 
-<body>
+function gerarCard(){
 
-<header>
+let nomes = ["Arkan","Lyra","Draven","Kira","Zyron"]
+
+let nome = nomes[Math.floor(Math.random()*nomes.length)]
+
+let avatar = "https://robohash.org/"+nome+"?set=set4"
+
+let card = `
+
+<div class="card">
+
+<img src="${avatar}">
+
+<h2>${nome}</h2>
+
+<div class="status">
+<p>HP: ${Math.floor(Math.random()*100)}</p>
+<p>ATK: ${Math.floor(Math.random()*50)}</p>
+<p>DEF: ${Math.floor(Math.random()*50)}</p>
+</div>
 
 <div class="logo">
 <a href="#">CardForge</a>
 </div>
 
-<div class="menu-icon" onclick="toggleMenu()">
-☰
-</div>
+`
 
-</header>
+document.getElementById("areaCards").innerHTML += card
 
-<nav id="menu">
-
-<ul>
-
-<li><a href="#">Menu</a></li>
-<li><a href="#">Meus Personagens</a></li>
-<li><a href="#">+ Criar Novo Card</a></li>
-
-</ul>
-
-</nav>
-
-
-<section class="conteudo">
-
-<h1>Crie seu personagem</h1>
-
-<p>
-Gere um avatar único com status aleatórios de combate.
-</p>
-
-</section>
-
-<script src="script.js"></script>
-
-</body>
-</html>
-
-<section class="gerador">
-
-<h2>Gerar Novo Personagem</h2>
-
-<button onclick="gerarCard()">Gerar Card</button>
-
-<div class="card">
-
-<img id="avatar" src="" alt="avatar">
-
-<h3 id="nome"></h3>
-
-<div class="status">
-
-<p>❤️ Vida: <span id="vida"></span></p>
-<p>⚔️ Ataque: <span id="ataque"></span></p>
-<p>🛡️ Defesa: <span id="defesa"></span></p>
-<p>⚡ Velocidade: <span id="velocidade"></span></p>
-<p>⭐ Raridade: <span id="raridade"></span></p>
-
-</div>
-
-</div>
-
-</section>
+}
