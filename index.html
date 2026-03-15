@@ -3,57 +3,155 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gerador de Personagens</title>
+  <title>Cards Forge Heroes</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; }
+    header { background:#222; color:#fff; padding:10px 20px; display:flex; justify-content:space-between; align-items:center; }
+    header .logo a { color:#fff; text-decoration:none; font-size:1.5em; }
+    header .menu-icon { font-size:1.8em; cursor:pointer; }
+
+    #menu { width:200px; background:#333; color:#fff; position:fixed; top:0; left:-250px; height:100%; padding:20px; transition:0.3s; }
+    #menu ul { list-style:none; padding:0; }
+    #menu ul li { margin:15px 0; }
+    #menu ul li a { color:#fff; text-decoration:none; font-weight:bold; }
+
+    .conteudo { margin-left:20px; padding:20px; }
+    .gerador { margin-left:20px; padding:20px; }
+
+    .card { border:1px solid #aaa; border-radius:8px; padding:10px; margin:10px; display:inline-block; width:150px; vertical-align:top; text-align:center; background:#f5f5f5; }
+    .card img { border-radius:50%; width:100px; height:100px; }
+    .status p { margin:5px 0; }
+
+    .raridade.Comum { color: gray; font-weight:bold; }
+    .raridade.Raro { color: blue; font-weight:bold; }
+    .raridade.Épico { color: purple; font-weight:bold; }
+    .raridade.Lendário { color: gold; font-weight:bold; }
+  </style>
 </head>
 <body>
 
   <!-- HEADER -->
   <header>
-    <div class="logo">
-      <a href="#">Cards Forge Heroes</a>
-    </div>
+    <div class="logo"><a href="#">Cards Forge Heroes</a></div>
     <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
   </header>
 
   <!-- MENU LATERAL -->
   <nav id="menu">
     <ul>
-      <li><a href="#">Menu</a></li>
-      <li><a href="#">Meus Personagens</a></li>
-      <li><a href="#">+ Criar Novo Card</a></li>
+      <li><a href="#" onclick="abrirAba('gerar')">Gerar Personagem</a></li>
+      <li><a href="#" onclick="abrirAba('meus')">Meus Personagens</a></li>
     </ul>
   </nav>
 
   <!-- CONTEÚDO -->
   <section class="conteudo">
-    <h1>Gerador de Personagens</h1>
-    <p>Clique no botão para criar um novo personagem.</p>
+    <!-- Aba Gerar Personagem -->
+    <div id="aba-gerar">
+      <h1>Gerador de Personagens</h1>
+      <p>Clique no botão para criar um novo personagem.</p>
+      <button onclick="gerarCard()">Criar Personagem</button>
+      <div id="areaCards"></div>
+    </div>
+
+    <!-- Aba Meus Personagens -->
+    <div id="aba-meus" style="display:none;">
+      <h1>Meus Personagens</h1>
+      <div id="areaMeusPersonagens"></div>
+    </div>
   </section>
 
-  <!-- GERADOR -->
-  <section class="gerador">
-    <button onclick="gerarCard()">Criar Personagem</button>
-    <div id="areaCards"></div>
-  </section>
-</header>
+  <!-- SCRIPT -->
+  <script>
+    // Abre e fecha menu lateral
+    function toggleMenu() {
+      let menu = document.getElementById("menu")
+      if(menu.style.left === "0px") {
+        menu.style.left = "-250px"
+      } else {
+        menu.style.left = "0px"
+      }
+    }
 
+    // Controla abas
+    function abrirAba(aba) {
+      document.getElementById("aba-gerar").style.display = (aba === 'gerar') ? "block" : "none";
+      document.getElementById("aba-meus").style.display  = (aba === 'meus') ? "block" : "none";
+      if(aba === 'meus') carregarPersonagens("areaMeusPersonagens");
+    }
 
-<!-- MENU LATERAL -->
+    // Salva personagem no Local Storage
+    function salvarPersonagem(personagem) {
+      let personagens = JSON.parse(localStorage.getItem("meusPersonagens")) || [];
+      personagens.push(personagem);
+      localStorage.setItem("meusPersonagens", JSON.stringify(personagens));
+    }
 
-<nav id="menu">
+    // Carrega personagens de um container
+    function carregarPersonagens(containerId) {
+      let personagens = JSON.parse(localStorage.getItem("meusPersonagens")) || [];
+      let area = document.getElementById(containerId);
+      area.innerHTML = "";
+      personagens.forEach(p => {
+        let card = `
+          <div class="card">
+            <img src="${p.avatar}" alt="Avatar">
+            <h2>${p.nome}</h2>
+            <p class="raridade ${p.raridade}">${p.raridade}</p>
+            <div class="status">
+              <p>❤️ Vida: <span>${p.vida}</span></p>
+              <p>⚔️ Ataque: <span>${p.ataque}</span></p>
+              <p>🛡️ Defesa: <span>${p.defesa}</span></p>
+              <p>💨 Velocidade: <span>${p.velocidade}</span></p>
+            </div>
+          </div>
+        `;
+        area.innerHTML += card;
+      });
+    }
 
-<ul>
+    // Gera card de personagem
+    function gerarCard() {
+      let seed = Math.floor(Math.random() * 100000);
+      let avatar = "https://api.dicebear.com/7.x/adventurer/svg?seed=" + seed;
 
-<li><a href="#">Menu</a></li>
-<li><a href="#">Meus Personagens</a></li>
-<li><a href="#">+ Criar Novo Card</a></li>
+      let vida = Math.floor(Math.random() * 100) + 50;
+      let ataque = Math.floor(Math.random() * 50) + 10;
+      let defesa = Math.floor(Math.random() * 50) + 10;
+      let velocidade = Math.floor(Math.random() * 40) + 10;
 
-</ul>
+      let nomes = ["Drakon","Zerath","Kael","Nyx","Orion","Ragnar","Atlas","Vex","Luna","Fenrir"];
+      let nomeAleatorio = nomes[Math.floor(Math.random() * nomes.length)];
 
-</nav>
-<script src="script.js"></script>
+      let raridadeLista = ["Comum","Raro","Épico","Lendário"];
+      let raridade = raridadeLista[Math.floor(Math.random() * raridadeLista.length)];
 
-  <script src="script.js"></script>
+      let personagem = { avatar, nome: nomeAleatorio, raridade, vida, ataque, defesa, velocidade };
+      salvarPersonagem(personagem);
+
+      // Mostra na aba gerar
+      let card = `
+        <div class="card">
+          <img src="${avatar}" alt="Avatar">
+          <h2>${nomeAleatorio}</h2>
+          <p class="raridade ${raridade}">${raridade}</p>
+          <div class="status">
+            <p>❤️ Vida: <span>${vida}</span></p>
+            <p>⚔️ Ataque: <span>${ataque}</span></p>
+            <p>🛡️ Defesa: <span>${defesa}</span></p>
+            <p>💨 Velocidade: <span>${velocidade}</span></p>
+          </div>
+        </div>
+      `;
+      document.getElementById("areaCards").innerHTML += card;
+    }
+
+    // Carrega personagens ao abrir a página
+    window.onload = function() {
+      carregarPersonagens("areaCards");
+    }
+  </script>
+
 </body>
 </html>
