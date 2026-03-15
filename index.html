@@ -1,6 +1,11 @@
 function toggleMenu(){
 
-let menu = document.getElementById("menu")
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gerador de Personagens</title>
 
 if(menu.style.left === "0px"){
 menu.style.left = "-250px"
@@ -12,32 +17,65 @@ menu.style.left = "0px"
 
 function gerarCard(){
 
-let nomes = ["Arkan","Lyra","Draven","Kira","Zyron"]
+<!-- HEADER -->
 
-let nome = nomes[Math.floor(Math.random()*nomes.length)]
-
-let avatar = "https://robohash.org/"+nome+"?set=set4"
-
-let card = `
-
-<div class="card">
-
-<img src="${avatar}">
-
-<h2>${nome}</h2>
-
-<div class="status">
-<p>HP: ${Math.floor(Math.random()*100)}</p>
-<p>ATK: ${Math.floor(Math.random()*50)}</p>
-<p>DEF: ${Math.floor(Math.random()*50)}</p>
-</div>
+<header>
 
 <div class="logo">
-<a href="#">CardForge</a>
+<a href="#">MeuRPG</a>
 </div>
 
 `
 
 document.getElementById("areaCards").innerHTML += card
 
-}
+
+<!-- MENU LATERAL -->
+
+<nav id="menu">
+
+<ul>
+
+<li><a href="#">Menu</a></li>
+<li><a href="#">Meus Personagens</a></li>
+<li><a href="#">+ Criar Novo Card</a></li>
+
+</ul>
+
+</nav>
+
+
+<!-- IMAGEM HERO -->
+
+<section class="hero">
+
+<img src="https://images.unsplash.com/photo-1542751371-adc38448a05e">
+
+</section>
+
+
+<!-- CONTEÚDO -->
+
+<section class="conteudo">
+
+<h1>Gerador de Personagens</h1>
+<p>Clique no botão para criar um novo personagem.</p>
+
+</section>
+
+
+<!-- GERADOR -->
+
+<section class="gerador">
+
+<button onclick="gerarCard()">Criar Personagem</button>
+
+<div id="areaCards"></div>
+
+</section>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
