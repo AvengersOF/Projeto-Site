@@ -21,7 +21,7 @@ function gerarCard() {
   let velocidade = Math.floor(Math.random() * 40)  + 10
 
   // Nome aleatório
-  let nomes = ["Drakon", "Zerath", "Kael", "Nyx", "Orion", "Ragnar", "Atlas", "Vex"]
+  let nomes = ["Drakon", "Zerath", "Kael", "Nyx", "Orion", "Ragnar", "Atlas", "Vex", "Luna", "Fenrir", "Astra", "Drax", "Sable", "Thorne", "Valkyrie", "Zephyr", "Nyssa", "Kairo", "Seraph", "Vesper", "Riven", "Eclipse", "Solara", "Griffin", "Ember", "Shadow", "Phoenix", "Vortex", "Siren", "Dusk", "Blaze", "Nova", "Onyx", "Rogue", "Sable", "Vex", "Thorne", "Valkyrie", "Zephyr", "Nyssa", "Kairo", "Seraph", "Vesper", "Riven", "Eclipse", "Solara", "Griffin", "Ember", "Shadow", "Phoenix", "Vortex", "Siren", "Dusk", "Blaze", "Nova", "Onyx", "Rogue", "Sable", "Vex", "Thorne", "Valkyrie", "Zephyr", "Nyssa", "Kairo", "Seraph", "Vesper", "Riven", "Eclipse", "Solara", "Griffin", "Ember", "Shadow",] 
   let nomeAleatorio = nomes[Math.floor(Math.random() * nomes.length)]
 
   // Raridade aleatória
