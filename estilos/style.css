@@ -1,219 +1,169 @@
 /* RESET */
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* BODY / FUNDO DO SITE */
-
-body{
-
-font-family:Arial, Helvetica, sans-serif;
-
-background:
-linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-url("https://images.unsplash.com/photo-1511512578047-dfb367046420");
-
-background-size:cover;
-background-position:center;
-background-attachment:fixed;
-
-color:white;
-min-height:100vh;
-
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url("https://images.unsplash.com/photo-1511512578047-dfb367046420");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  min-height: 100vh;
 }
 
 /* HEADER */
-
-header{
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-
-padding:20px;
-
-background:rgba(30,30,30,0.9);
-
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: rgba(30,30,30,0.9);
 }
 
 /* LOGO */
-
-.logo a{
-
-color:white;
-text-decoration:none;
-
-font-size:24px;
-font-weight:bold;
-
+.logo a {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 /* MENU ICON */
-
-.menu-icon{
-
-font-size:28px;
-cursor:pointer;
-
+.menu-icon {
+  font-size: 28px;
+  cursor: pointer;
 }
 
 /* MENU LATERAL ESCONDIDO */
-
-nav{
-
-position:fixed;
-
-top:0;
-left:-250px;
-
-width:250px;
-height:100%;
-
-background:#222;
-
-transition:0.3s;
-
-padding-top:60px;
-
-z-index:1000;
-
+nav {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: #222;
+  transition: 0.3s;
+  padding-top: 60px;
+  z-index: 1000;
 }
 
-nav ul{
-
-list-style:none;
-
+nav ul {
+  list-style: none;
 }
 
-nav ul li{
-
-padding:20px;
-
+nav ul li {
+  padding: 20px;
 }
 
-nav ul li a{
-
-color:white;
-text-decoration:none;
-font-size:18px;
-
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
 }
 
-nav ul li:hover{
-
-background:#333;
-
+nav ul li:hover {
+  background: #333;
 }
 
 /* HERO IMAGE */
-
-.hero img{
-
-width:100%;
-height:300px;
-
-object-fit:cover;
-
+.hero img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
 }
 
 /* CONTEUDO */
-
-.conteudo{
-
-padding:40px;
-text-align:center;
-
+.conteudo {
+  padding: 40px;
+  text-align: center;
 }
 
 /* GERADOR */
-
-.gerador{
-
-text-align:center;
-margin-top:40px;
-
+.gerador {
+  text-align: center;
+  margin-top: 40px;
+  padding-bottom: 60px;
 }
 
 /* BOTÕES */
-
-button{
-
-padding:12px 25px;
-
-font-size:16px;
-
-border:none;
-border-radius:10px;
-
-background:#ff9800;
-
-color:white;
-
-cursor:pointer;
-
-transition:0.3s;
-
+button {
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background: #ff9800;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-button:hover{
+button:hover {
+  background: #ffb74d;
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
 
-background:#ffb74d;
-
-transform:scale(1.05);
-
-box-shadow:0 5px 15px rgba(0,0,0,0.5);
-
+/* ÁREA DE CARDS */
+#areaCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
 }
 
 /* CARD DO PERSONAGEM */
-
-.card{
-
-width:260px;
-
-margin:auto;
-margin-top:20px;
-
-padding:20px;
-
-background:rgba(30,30,30,0.9);
-
-border-radius:15px;
-
-box-shadow:0 0 15px rgba(0,0,0,0.6);
-
-text-align:center;
-
-transition:0.3s;
-
+.card {
+  width: 260px;
+  padding: 20px;
+  background: rgba(30,30,30,0.9);
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+  text-align: center;
+  transition: 0.3s;
 }
 
 /* ANIMAÇÃO CARD */
-
-.card:hover{
-
-transform:translateY(-8px);
-
+.card:hover {
+  transform: translateY(-8px);
 }
 
 /* IMAGEM DO CARD */
+.card img {
+  width: 150px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
 
-.card img{
+/* NOME E RARIDADE */
+.card h2 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
 
-width:150px;
-border-radius:50%;
-
-margin-bottom:15px;
-
+.card .raridade {
+  font-size: 13px;
+  color: #ff9800;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* STATUS DO PERSONAGEM */
+.status p {
+  margin: 5px 0;
+  font-size: 14px;
+}
 
-.status p{
-
-margin:5px;
-
+.status span {
+  font-weight: bold;
+  color: #ff9800;
 }
