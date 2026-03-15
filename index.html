@@ -1,25 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vendinha do CJ</title>
+    <title>Gerador de Avatar</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <main>
-        <header>
-            <h1>Venda do CJ</h1>
-        </header>
-        <article>
-            <h2>Só artigos de luxo com o mano CJ</h2>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus fugiat accusantium quis deleniti corporis ab eius tempora eos, quibusdam quas sint voluptas pariatur cupiditate adipisci debitis? Mollitia repellat aliquid recusandae.</p>
-        </article>
-        <article>
-            <h2>Curso de java</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quis doloremque pariatur magnam. Eveniet natus deserunt sed quod voluptatum, quibusdam inventore dolorum incidunt ducimus temporibus similique, ullam ex, fugit ab.</p>
 
-        </article>
-    </main>
-    
+<body>
+
+<h1>Gerador de Personagem</h1>
+
+<button onclick="gerarPersonagem()">Gerar Personagem</button>
+
+<div class="card">
+
+    <img id="avatar" src="https://i.pravatar.cc/200">
+
+    <h2>Personagem</h2>
+
+    <p>❤️ Vida: <span id="vida">0</span></p>
+    <p>⚔️ Ataque: <span id="ataque">0</span></p>
+    <p>🛡️ Defesa: <span id="defesa">0</span></p>
+    <p>⚡ Velocidade: <span id="velocidade">0</span></p>
+
+</div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
