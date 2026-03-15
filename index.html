@@ -1,32 +1,41 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+function toggleMenu(){
 
-<head>
-    <meta charset="UTF-8">
-    <title>Gerador de Avatar</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+let menu = document.getElementById("menu")
 
-<body>
+if(menu.style.left === "0px"){
+menu.style.left = "-250px"
+}else{
+menu.style.left = "0px"
+}
 
-<h1>Gerador de Personagem</h1>
+}
 
-<button onclick="gerarPersonagem()">Gerar Personagem</button>
+function gerarCard(){
+
+let nomes = ["Arkan","Lyra","Draven","Kira","Zyron"]
+
+let nome = nomes[Math.floor(Math.random()*nomes.length)]
+
+let avatar = "https://robohash.org/"+nome+"?set=set4"
+
+let card = `
 
 <div class="card">
 
-    <img id="avatar" src="https://i.pravatar.cc/200">
+<img src="${avatar}">
 
-    <h2>Personagem</h2>
+<h2>${nome}</h2>
 
-    <p>❤️ Vida: <span id="vida">0</span></p>
-    <p>⚔️ Ataque: <span id="ataque">0</span></p>
-    <p>🛡️ Defesa: <span id="defesa">0</span></p>
-    <p>⚡ Velocidade: <span id="velocidade">0</span></p>
+<div class="status">
+<p>HP: ${Math.floor(Math.random()*100)}</p>
+<p>ATK: ${Math.floor(Math.random()*50)}</p>
+<p>DEF: ${Math.floor(Math.random()*50)}</p>
+</div>
 
 </div>
 
-<script src="script.js"></script>
+`
 
-</body>
-</html>
+document.getElementById("areaCards").innerHTML += card
+
+}
