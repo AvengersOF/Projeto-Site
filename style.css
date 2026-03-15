@@ -14,7 +14,7 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  color: white;
+  color: rgba(79, 5, 69, 0.416);
   min-height: 100vh;
 }
 
