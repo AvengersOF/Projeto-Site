@@ -1,17 +1,167 @@
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+
+}
+
 body{
 
-background: linear-gradient(45deg,#0f2027,#203a43,#2c5364);
-font-family: Arial;
-text-align: center;
-color: white;
+font-family:Arial, Helvetica, sans-serif;
+background:#111;
+color:white;
 
 }
 
-main {
-    background-color: white;
-    width: 500px;
-    margin: 0 auto;
-    padding: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* HEADER */
+
+header{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:20px;
+
+background:#1e1e1e;
+
 }
 
+/* LOGO */
+
+.logo a{
+
+color:white;
+text-decoration:none;
+font-size:24px;
+font-weight:bold;
+
+}
+
+/* MENU ICON */
+
+.menu-icon{
+
+font-size:28px;
+cursor:pointer;
+
+}
+
+/* MENU ESCONDIDO */
+
+nav{
+
+position:fixed;
+
+top:0;
+left:-250px;
+
+width:250px;
+height:100%;
+
+background:#222;
+
+transition:0.3s;
+
+padding-top:60px;
+
+}
+
+nav ul{
+
+list-style:none;
+
+}
+
+nav ul li{
+
+padding:20px;
+
+}
+
+nav ul li a{
+
+color:white;
+text-decoration:none;
+font-size:18px;
+
+}
+
+nav ul li:hover{
+
+background:#333;
+
+}
+
+/* HERO IMAGE */
+
+.hero img{
+
+width:100%;
+height:300px;
+object-fit:cover;
+
+}
+
+/* CONTEUDO */
+
+.conteudo{
+
+padding:40px;
+text-align:center;
+
+}
+
+.gerador{
+
+text-align:center;
+margin-top:40px;
+
+}
+
+.gerador button{
+
+padding:12px 25px;
+font-size:16px;
+
+border:none;
+border-radius:10px;
+
+background:#ff9800;
+color:white;
+
+cursor:pointer;
+
+margin-bottom:30px;
+
+}
+
+.card{
+
+width:260px;
+
+margin:auto;
+padding:20px;
+
+background:#1e1e1e;
+
+border-radius:15px;
+
+box-shadow:0 0 15px rgba(0,0,0,0.6);
+
+}
+
+.card img{
+
+width:150px;
+
+margin-bottom:15px;
+
+}
+
+.status p{
+
+margin:5px;
+
+}
