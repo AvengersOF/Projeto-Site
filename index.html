@@ -2,31 +2,83 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Gerador de Avatar</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>CardForge</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<h1>Gerador de Personagem</h1>
+<header>
 
-<button onclick="gerarPersonagem()">Gerar Personagem</button>
-
-<div class="card">
-
-    <img id="avatar" src="https://i.pravatar.cc/200">
-
-    <h2>Personagem</h2>
-
-    <p>❤️ Vida: <span id="vida">0</span></p>
-    <p>⚔️ Ataque: <span id="ataque">0</span></p>
-    <p>🛡️ Defesa: <span id="defesa">0</span></p>
-    <p>⚡ Velocidade: <span id="velocidade">0</span></p>
-
+<div class="logo">
+<a href="#">CardForge</a>
 </div>
+
+<div class="menu-icon" onclick="toggleMenu()">
+☰
+</div>
+
+</header>
+
+<nav id="menu">
+
+<ul>
+
+<li><a href="#">Menu</a></li>
+<li><a href="#">Meus Personagens</a></li>
+<li><a href="#">+ Criar Novo Card</a></li>
+
+</ul>
+
+</nav>
+
+
+<section class="hero">
+
+<img src="https://images.unsplash.com/photo-1511512578047-dfb367046420" alt="banner">
+
+</section>
+
+<section class="conteudo">
+
+<h1>Crie seu personagem</h1>
+
+<p>
+Gere um avatar único com status aleatórios de combate.
+</p>
+
+</section>
 
 <script src="script.js"></script>
 
 </body>
 </html>
+
+<section class="gerador">
+
+<h2>Gerar Novo Personagem</h2>
+
+<button onclick="gerarCard()">Gerar Card</button>
+
+<div class="card">
+
+<img id="avatar" src="" alt="avatar">
+
+<h3 id="nome"></h3>
+
+<div class="status">
+
+<p>❤️ Vida: <span id="vida"></span></p>
+<p>⚔️ Ataque: <span id="ataque"></span></p>
+<p>🛡️ Defesa: <span id="defesa"></span></p>
+<p>⚡ Velocidade: <span id="velocidade"></span></p>
+<p>⭐ Raridade: <span id="raridade"></span></p>
+
+</div>
+
+</div>
+
+</section>
