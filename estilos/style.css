@@ -112,3 +112,56 @@ padding:40px;
 text-align:center;
 
 }
+
+.gerador{
+
+text-align:center;
+margin-top:40px;
+
+}
+
+.gerador button{
+
+padding:12px 25px;
+font-size:16px;
+
+border:none;
+border-radius:10px;
+
+background:#ff9800;
+color:white;
+
+cursor:pointer;
+
+margin-bottom:30px;
+
+}
+
+.card{
+
+width:260px;
+
+margin:auto;
+padding:20px;
+
+background:#1e1e1e;
+
+border-radius:15px;
+
+box-shadow:0 0 15px rgba(0,0,0,0.6);
+
+}
+
+.card img{
+
+width:150px;
+
+margin-bottom:15px;
+
+}
+
+.status p{
+
+margin:5px;
+
+}
