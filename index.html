@@ -2,8 +2,11 @@
 <html lang="pt-br">
 
 <head>
+
 <meta charset="UTF-8">
-<title>CardForge</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gerador de Personagens</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -11,10 +14,12 @@
 
 <body>
 
+<!-- HEADER -->
+
 <header>
 
 <div class="logo">
-<a href="#">CardForge</a>
+<a href="#">MeuRPG</a>
 </div>
 
 <div class="menu-icon" onclick="toggleMenu()">
@@ -22,6 +27,9 @@
 </div>
 
 </header>
+
+
+<!-- MENU LATERAL -->
 
 <nav id="menu">
 
@@ -36,43 +44,37 @@
 </nav>
 
 
-<section class="conteudo">
+<!-- IMAGEM HERO -->
 
-<h1>Crie seu personagem</h1>
+<section class="hero">
 
-<p>
-Gere um avatar único com status aleatórios de combate.
-</p>
+<img src="https://images.unsplash.com/photo-1542751371-adc38448a05e">
 
 </section>
+
+
+<!-- CONTEÚDO -->
+
+<section class="conteudo">
+
+<h1>Gerador de Personagens</h1>
+<p>Clique no botão para criar um novo personagem.</p>
+
+</section>
+
+
+<!-- GERADOR -->
+
+<section class="gerador">
+
+<button onclick="gerarCard()">Criar Personagem</button>
+
+<div id="areaCards"></div>
+
+</section>
+
 
 <script src="script.js"></script>
 
 </body>
 </html>
-
-<section class="gerador">
-
-<h2>Gerar Novo Personagem</h2>
-
-<button onclick="gerarCard()">Gerar Card</button>
-
-<div class="card">
-
-<img id="avatar" src="" alt="avatar">
-
-<h3 id="nome"></h3>
-
-<div class="status">
-
-<p>❤️ Vida: <span id="vida"></span></p>
-<p>⚔️ Ataque: <span id="ataque"></span></p>
-<p>🛡️ Defesa: <span id="defesa"></span></p>
-<p>⚡ Velocidade: <span id="velocidade"></span></p>
-<p>⭐ Raridade: <span id="raridade"></span></p>
-
-</div>
-
-</div>
-
-</section>
