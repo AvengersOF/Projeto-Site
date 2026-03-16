@@ -1,3 +1,30 @@
+// Limpa todos os personagens salvos
+function limparPersonagens() {
+  if (confirm("Tem certeza que deseja apagar todos os personagens?")) {
+    localStorage.removeItem("meusPersonagens")
+    document.getElementById("areaCards").innerHTML = ""
+    document.getElementById("areaMeusPersonagens").innerHTML = ""
+  }
+}
+
+// Limpa todos os personagens salvos
+function limparPersonagens() {
+  if (confirm("Tem certeza que deseja apagar todos os personagens?")) {
+    localStorage.removeItem("meusPersonagens")
+    document.getElementById("areaCards").innerHTML = ""
+    document.getElementById("areaMeusPersonagens").innerHTML = ""
+  }
+}
+
+// Limpa todos os personagens salvos
+function limparPersonagens() {
+  if (confirm("Tem certeza que deseja apagar todos os personagens?")) {
+    localStorage.removeItem("meusPersonagens")
+    document.getElementById("areaCards").innerHTML = ""
+    document.getElementById("areaMeusPersonagens").innerHTML = ""
+  }
+}
+
 // Abre e fecha o menu lateral
 function toggleMenu() {
   let menu = document.getElementById("menu")
@@ -47,6 +74,15 @@ function carregarPersonagens(containerId) {
   personagens.forEach(p => {
     area.innerHTML += montarCard(p)
   })
+}
+
+// Limpa todos os personagens salvos
+function limparPersonagens() {
+  if (confirm("Tem certeza que deseja apagar todos os personagens?")) {
+    localStorage.removeItem("meusPersonagens")
+    document.getElementById("areaCards").innerHTML = ""
+    document.getElementById("areaMeusPersonagens").innerHTML = ""
+  }
 }
 
 // Gera um novo card de personagem e adiciona na tela
