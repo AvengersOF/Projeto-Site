@@ -8,6 +8,13 @@ function toggleMenu() {
   }
 }
 
+// Controla abas
+function abrirAba(aba) {
+  document.getElementById("aba-gerar").style.display = (aba === "gerar") ? "block" : "none"
+  document.getElementById("aba-meus").style.display  = (aba === "meus")  ? "block" : "none"
+  if (aba === "meus") carregarPersonagens("areaMeusPersonagens")
+}
+
 // Salva um personagem no Local Storage
 function salvarPersonagem(personagem) {
   let personagens = JSON.parse(localStorage.getItem("meusPersonagens")) || []
@@ -15,26 +22,30 @@ function salvarPersonagem(personagem) {
   localStorage.setItem("meusPersonagens", JSON.stringify(personagens))
 }
 
-// Carrega e mostra todos os personagens salvos na área de cards
-function carregarPersonagens() {
-  let personagens = JSON.parse(localStorage.getItem("meusPersonagens")) || []
-  let area = document.getElementById("areaCards")
-  area.innerHTML = "" // Limpa antes de adicionar
-  personagens.forEach(p => {
-    let card = `
-      <div class="card">
-        <img src="${p.avatar}" alt="Avatar do personagem">
-        <h2>${p.nome}</h2>
-        <p class="raridade">${p.raridade}</p>
-        <div class="status">
-          <p>❤️ Vida: <span>${p.vida}</span></p>
-          <p>⚔️ Ataque: <span>${p.ataque}</span></p>
-          <p>🛡️ Defesa: <span>${p.defesa}</span></p>
-          <p>💨 Velocidade: <span>${p.velocidade}</span></p>
-        </div>
+// Monta o HTML de um card
+function montarCard(p) {
+  return `
+    <div class="card card-animado">
+      <img src="${p.avatar}" alt="Avatar do personagem">
+      <h2>${p.nome}</h2>
+      <p class="raridade ${p.raridade}">${p.raridade}</p>
+      <div class="status">
+        <p>❤️ Vida: <span>${p.vida}</span></p>
+        <p>⚔️ Ataque: <span>${p.ataque}</span></p>
+        <p>🛡️ Defesa: <span>${p.defesa}</span></p>
+        <p>⚡ Velocidade: <span>${p.velocidade}</span></p>
       </div>
-    `
-    area.innerHTML += card
+    </div>
+  `
+}
+
+// Carrega e mostra todos os personagens salvos em um container
+function carregarPersonagens(containerId) {
+  let personagens = JSON.parse(localStorage.getItem("meusPersonagens")) || []
+  let area = document.getElementById(containerId)
+  area.innerHTML = ""
+  personagens.forEach(p => {
+    area.innerHTML += montarCard(p)
   })
 }
 
@@ -51,7 +62,10 @@ function gerarCard() {
   let velocidade = Math.floor(Math.random() * 40)  + 10
 
   // Nome aleatório
-  let nomes = ["Drakon", "Zerath", "Kael", "Nyx", "Orion", "Ragnar", "Atlas", "Vex", "Luna", "Fenrir", "Astra", "Drax", "Sable", "Thorne", "Valkyrie", "Zephyr", "Nyssa", "Kairo", "Seraph", "Vesper", "Riven", "Eclipse", "Solara", "Griffin", "Ember", "Shadow", "Phoenix", "Vortex", "Siren", "Dusk", "Blaze", "Nova", "Onyx", "Rogue"]
+  let nomes = ["Drakon", "Zerath", "Kael", "Nyx", "Orion", "Ragnar", "Atlas", "Vex", "Luna", "Fenrir",
+               "Astra", "Drax", "Sable", "Thorne", "Valkyrie", "Zephyr", "Nyssa", "Kairo", "Seraph",
+               "Vesper", "Riven", "Eclipse", "Solara", "Griffin", "Ember", "Shadow", "Phoenix", "Vortex",
+               "Siren", "Dusk", "Blaze", "Nova", "Onyx", "Rogue"]
   let nomeAleatorio = nomes[Math.floor(Math.random() * nomes.length)]
 
   // Raridade aleatória
@@ -64,26 +78,11 @@ function gerarCard() {
   // Salva no Local Storage
   salvarPersonagem(personagem)
 
-  // Monta o card em HTML e adiciona na tela
-  let card = `
-<div class="card card-animado">
-   <img src="${avatar}" alt="Avatar do personagem">
-   <h2>${nomeAleatorio}</h2>
-   <p class="raridade">${raridade}</p>
-
-   <div class="status">
-      <p>❤️ Vida: <span>${vida}</span></p>
-      <p>⚔️ Ataque: <span>${ataque}</span></p>
-      <p>🛡️ Defesa: <span>${defesa}</span></p>
-      <p>⚡ Velocidade: <span>${velocidade}</span></p>
-   </div>
-</div>
-`
-
-document.getElementById("areaCards").innerHTML += card;
+  // Adiciona o card na tela com animação
+  document.getElementById("areaCards").innerHTML += montarCard(personagem)
 }
 
 // Carrega personagens salvos ao abrir a página
-window.onload = function() {
-  carregarPersonagens()
+window.onload = function () {
+  carregarPersonagens("areaCards")
 }
