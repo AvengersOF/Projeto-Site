@@ -125,7 +125,7 @@ button:hover {
   padding: 20px;
   background: rgba(212, 212, 212, 0.9);
   border-radius: 15px;
-  box-shadow: 0 0 15px rgba(169, 0, 130, 0.6);
+  box-shadow: 0 0 15px rgba(243, 199, 233, 0.6);
   text-align: center;
   transition: 0.3s;
 }
