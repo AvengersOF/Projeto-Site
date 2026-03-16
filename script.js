@@ -66,19 +66,21 @@ function gerarCard() {
 
   // Monta o card em HTML e adiciona na tela
   let card = `
-    <div class="card">
-      <img src="${avatar}" alt="Avatar do personagem">
-      <h2>${nomeAleatorio}</h2>
-      <p class="raridade">${raridade}</p>
-      <div class="status">
-        <p>❤️ Vida: <span>${vida}</span></p>
-        <p>⚔️ Ataque: <span>${ataque}</span></p>
-        <p>🛡️ Defesa: <span>${defesa}</span></p>
-        <p>💨 Velocidade: <span>${velocidade}</span></p>
-      </div>
-    </div>
-  `
-  document.getElementById("areaCards").innerHTML += card
+<div class="card card-animado">
+   <img src="${avatar}" alt="Avatar do personagem">
+   <h2>${nomeAleatorio}</h2>
+   <p class="raridade">${raridade}</p>
+
+   <div class="status">
+      <p>❤️ Vida: <span>${vida}</span></p>
+      <p>⚔️ Ataque: <span>${ataque}</span></p>
+      <p>🛡️ Defesa: <span>${defesa}</span></p>
+      <p>⚡ Velocidade: <span>${velocidade}</span></p>
+   </div>
+</div>
+`
+
+document.getElementById("areaCards").innerHTML += card;
 }
 
 // Carrega personagens salvos ao abrir a página
